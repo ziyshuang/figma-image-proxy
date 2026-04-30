@@ -1,11 +1,8 @@
 export default async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
-
-  // 从环境变量读取 Pexels Key（AUTH_TOKEN 暂不用）
   const PEXELS_API_KEY = env.PEXELS_API_KEY;
 
-  // 获取搜索关键词
   const query = url.searchParams.get('query') || 'nature';
 
   try {
